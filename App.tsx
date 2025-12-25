@@ -8,6 +8,7 @@ import MobileFirst from './components/MobileFirst';
 import Testimonials from './components/Testimonials';
 import CTA from './components/CTA';
 import Footer from './components/Footer';
+import FAQ from './components/FAQ';
 
 const App: React.FC = () => {
   return (
@@ -33,7 +34,10 @@ const App: React.FC = () => {
         <section id="testimonials">
           <Testimonials />
         </section>
-        
+
+        <section id="FAQ">
+          <FAQ />
+        </section>
         <CTA />
       </main>
       <Footer />

@@ -27,7 +27,7 @@ const HowItWorks: React.FC = () => {
     <section className="py-24 bg-white relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-24">
-          <h2 className="text-4xl font-bold text-slate-900 mb-6">How AIBillo Works</h2>
+          <h2 className="font-heading text-4xl font-bold text-slate-900 mb-6 tracking-tight">How AiBillo Works</h2>
           <p className="text-slate-600 text-lg max-w-2xl mx-auto">Get up and running in minutes. No complex setup required.</p>
         </div>
 

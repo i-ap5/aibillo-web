@@ -6,8 +6,8 @@ const Features: React.FC = () => {
     <section className="py-24 bg-slate-50 relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center max-w-3xl mx-auto mb-20">
-          <h2 className="font-heading text-primary-600 font-bold tracking-[0.2em] uppercase text-xs mb-4">Why Choose AIBillo</h2>
-          <h3 className="font-heading text-4xl md:text-5xl font-bold text-slate-900 mb-6 leading [1.9]">Designed for Modern Business</h3>
+          <h2 className="font-heading text-primary-600 font-bold tracking-[0.2em] uppercase text-xs mb-4">Why Choose AiBillo</h2>
+          <h3 className="font-heading text-4xl md:text-5xl font-bold text-slate-900 mb-6 tracking-tight">Designed for Modern Business</h3>
           <p className="text-slate-600 text-lg">Powerful features wrapped in a simple interface. Everything you need to run your business, without the complexity.</p>
         </div>
 
@@ -15,20 +15,23 @@ const Features: React.FC = () => {
           {/* Feature 1 */}
           <div className="bg-white rounded-3xl p-8 shadow-sm border border-slate-100 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group">
             <div className="w-14 h-14 bg-primary-50 rounded-2xl flex items-center justify-center text-primary-600 mb-8 group-hover:scale-110 transition-transform">
-              <span className="material-symbols-outlined text-3xl">bolt</span>
+              <span
+                className="material-symbols-rounded material-filled text-3xl">
+                bolt
+              </span>
             </div>
             <h4 className="text-xl font-bold text-slate-900 mb-4">Lightning Fast Billing</h4>
             <p className="text-slate-600 leading-relaxed mb-8">Generate invoices in seconds. AI-powered autofill learns your products and customers.</p>
             <div className="w-full bg-slate-100 h-1.5 rounded-full overflow-hidden">
               <div className="bg-primary h-full w-3/4 rounded-full"></div>
             </div>
-            <p className="text-[10px] font-bold text-slate-400 mt-2 text-right uppercase">3x faster than excel</p>
+            <p className="text-[10px] font-semibold text-slate-400 mt-2 text-right uppercase">3x faster than others</p>
           </div>
 
           {/* Feature 2 */}
           <div className="bg-white rounded-3xl p-8 shadow-sm border border-slate-100 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group">
             <div className="w-14 h-14 bg-blue-50 rounded-2xl flex items-center justify-center text-blue-600 mb-8 group-hover:scale-110 transition-transform">
-              <span className="material-symbols-outlined text-3xl">cloud_sync</span>
+              <span className="material-symbols-outlined material-filled text-3xl">cloud_sync</span>
             </div>
             <h4 className="text-xl font-bold text-slate-900 mb-4">Real-Time Sync</h4>
             <p className="text-slate-600 leading-relaxed mb-8">Changes made on desktop reflect instantly on mobile. Never sell out-of-stock items again.</p>
@@ -63,7 +66,7 @@ const Features: React.FC = () => {
                 <span className="material-symbols-outlined text-sm">rocket_launch</span>
                 Enterprise Grade
               </div>
-              <h4 className="text-3xl md:text-5xl font-bold text-white mb-6">Multi-Store Management</h4>
+              <h4 className="font-heading text-3xl md:text-5xl font-bold text-white mb-6 tracking-tight">Multi-Store Management</h4>
               <p className="text-slate-400 text-lg leading-relaxed mb-10">Manage multiple locations from a single dashboard. Transfer stock, compare performance, and unify your customer base seamlessly.</p>
               <a href="#" className="inline-flex items-center text-white font-bold group/link">
                 <span className="border-b-2 border-primary group-hover/link:border-white transition-all pb-1">Explore Enterprise Features</span>

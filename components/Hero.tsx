@@ -5,7 +5,7 @@ import DashboardImg from '../assets/Dashboard_1.png';
 
 const Hero: React.FC = () => {
   return (
-    <section className="relative pt-32 pb-24 lg:pt-44 lg:pb-32 overflow-hidden">
+    <section className="relative pt-32 pb-24 lg:pt-36 lg:pb-32 overflow-hidden">
       {/* Background patterns */}
       <div className="absolute inset-0 hero-pattern opacity-60 pointer-events-none -z-10"></div>
       <div className="absolute top-0 inset-x-0 h-[600px] mesh-gradient pointer-events-none -z-10"></div>
@@ -21,32 +21,36 @@ const Hero: React.FC = () => {
             Introducing AiBillo v3.0
           </div>
           
-          <h1 className="font-heading text-5xl md:text-7xl font-extrabold tracking-tight text-slate-900 mb-6 leading-[1.1]">
-            Smart Billing. <br />
-            <span className="text-gradient">Real-Time Business Control.</span>
+          <h1 className="font-heading text-5xl md:text-7xl font-extrabold tracking-tight text-slate-900 mb-3 leading-[1.1]">
+            Smart Billing and <br />
+            <span className="text-gradient leading-[1.1]">Business Management</span>
           </h1>
-          
-          <p className="text-lg md:text-xl text-slate-500 mb-10 leading-relaxed max-w-2xl mx-auto">
-            The all-in-one cloud platform for retailers and SMEs. Automate billing, track inventory, and sync your mobile app instantly.
-          </p>
+            <h2 className="font-heading text-xl md:text-4xl font-bold mb-8 leading-tight tracking-tight">
+              Anytime... Anywhere...
+            </h2>
+
+          <p className="text-lg md:text-xl text-slate-500 mb-10 leading-relaxed max-w-2xl mx-auto leading-normal">
+            A cloud-based Billing & ERP platform built for owners who want real-time visibility, smarter decisions, and complete control.          </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <button className="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 text-base font-bold text-white transition-all duration-300 bg-primary-600 border border-transparent rounded-full hover:bg-primary-700 shadow-xl shadow-primary/30 hover:shadow-primary/50 hover:-translate-y-1">
               Start Free Trial
             </button>
             <button className="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 text-base font-bold text-slate-700 transition-all duration-300 bg-white border border-slate-200 rounded-full hover:bg-slate-50 hover:border-slate-300 shadow-sm hover:shadow-md hover:-translate-y-1">
-              <span className="mr-2 material-symbols-outlined text-primary">play_circle</span>
+              <span className="mr-2 material-symbols-rounded text-primary">play_circle</span>
               Watch Demo
             </button>
           </div>
 
           <div className="mt-10 flex items-center justify-center gap-6 text-sm font-semibold text-slate-500">
             <div className="flex items-center gap-1.5">
-              <span className="material-symbols-outlined text-green-500 text-lg">check_circle</span>
+              <span className="material-symbols-rounded material-filled text-green-500 text-sm" >
+                credit_card_off
+              </span>
               <span>No credit card</span>
             </div>
             <div className="flex items-center gap-1.5">
-              <span className="material-symbols-outlined text-green-500 text-lg">check_circle</span>
+              <span className="material-symbols-rounded text-green-500 text-sm">check_circle</span>
               <span>48 hours free trial</span>
             </div>
           </div>
