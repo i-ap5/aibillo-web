@@ -1,6 +1,6 @@
 
 import React from 'react';
-import DashboardImg from '../assets/Dashboard_1.png';
+import DashboardImg from '../assets/Dashboard.png';
 
 
 const Hero: React.FC = () => {
@@ -68,7 +68,12 @@ const Hero: React.FC = () => {
               </div>
               <div className="ml-4 flex-1 max-w-xl">
                 <div className="h-6 bg-slate-900/50 rounded-md border border-white/5 flex items-center px-3 text-[10px] text-slate-500 font-mono">
-                  <span className="material-symbols-outlined text-[12px] mr-2">lock</span>
+                    <span
+                      className="material-symbols-outlined mr-2 align-middle"
+                      style={{ fontSize: "10px" }}
+                    >
+                      lock
+                    </span>
                   billing.aibillo.com/dashboard
                 </div>
               </div>
