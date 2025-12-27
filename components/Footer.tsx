@@ -89,13 +89,33 @@ const Footer: React.FC = () => {
           </div>
         </div>
 
-        <div className="pt-10 border-t border-slate-900 flex flex-col md:flex-row justify-between items-center gap-6">
-          <p className="text-xs font-medium text-slate-600">© 2025 AIBillo Inc. All rights reserved.</p>
-          <div className="flex items-center gap-3 bg-slate-900 px-4 py-2 rounded-full border border-slate-800">
-            <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
-            <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Systems Operational</span>
-          </div>
-        </div>
+       <div className="pt-10 border-t border-slate-900 flex flex-col md:flex-row justify-between items-center gap-6">
+  
+  {/* Left: Copyright + Designer */}
+  <div className="flex flex-col items-center md:items-start gap-1">
+    <p className="text-xs font-medium text-slate-600">
+      © 2025 AIBillo Inc. All rights reserved.
+    </p>
+    <a
+      href="https://trowcode.com"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="text-xs font-medium text-slate-600 hover:text-slate-300 transition-colors "
+    >
+      Designed by <span className="font-medium ">Trowcode</span>
+    </a>
+  </div>
+
+  {/* Right: System Status */}
+  <div className="flex items-center gap-3 bg-slate-900 px-4 py-2 rounded-full border border-slate-800">
+    <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
+    <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">
+      Systems Operational
+    </span>
+  </div>
+
+</div>
+
       </div>
     </footer>
   );
