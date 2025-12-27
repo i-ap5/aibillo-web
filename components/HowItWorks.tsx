@@ -52,10 +52,10 @@ const HowItWorks: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
-            className="font-heading text-3xl md:text-5xl font-black text-slate-900 tracking-tight leading-tight mb-6"
+            className="font-heading d:text-4xl text-5xl md:text-6xl font-black text-slate-900 tracking-tight leading-tighter mb-6"
           >
-            Billing that feels <br />
-            <span className="text-gradient">like pure magic.</span>
+            Billing that feels like<br />
+            <span className="text-gradient">pure magic</span>
           </motion.h2>
           
           <motion.p 

@@ -1,7 +1,5 @@
-
 import React from 'react';
 import DashboardImg from '../assets/Dashboard.png';
-
 
 const Hero: React.FC = () => {
   return (
@@ -13,27 +11,38 @@ const Hero: React.FC = () => {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center max-w-4xl mx-auto mb-16 lg:mb-24">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border border-slate-200 text-xs font-bold text-primary-700 mb-8 shadow-sm animate-bounce">
+          {/* Badge - animate first */}
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border border-slate-200 text-xs font-bold text-primary-700 mb-8 shadow-sm animate-bounce" >
             <span className="relative flex h-2 w-2">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary-400 opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-primary-500"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-primary-500" ></span>
             </span>
             Introducing AiBillo v3.0
           </div>
-          
-          <h1 className="font-heading text-5xl md:text-7xl font-extrabold tracking-tight text-slate-900 mb-3 leading-[1.1]">
+
+          {/* Main heading */}
+          <h1 className="font-heading text-5xl md:text-7xl font-extrabold tracking-tight text-slate-900 mb-3 leading-[1.1] opacity-0 animate-fade-in-up" style={{ animationDelay: '0.2s', animationFillMode: 'forwards' }}>
             Smart Billing and <br />
             <span className="text-gradient leading-[1.1]">Business Management</span>
           </h1>
-            <h2 className="font-heading text-xl md:text-4xl font-bold mb-8 leading-tight tracking-tight">
-              Anytime... Anywhere...
-            </h2>
 
-          <p className="text-lg md:text-xl text-slate-500 mb-10 leading-relaxed max-w-2xl mx-auto leading-normal">
-            A cloud-based Billing & ERP platform built for owners who want real-time visibility, smarter decisions, and complete control.          </p>
+          {/* Subheading */}
+          <h2 className="font-heading text-xl md:text-4xl font-bold mb-8 leading-tight tracking-tight opacity-0 animate-fade-in-up" style={{ animationDelay: '0.3s', animationFillMode: 'forwards' }}>
+            Anytime... Anywhere...
+          </h2>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <button className="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 text-base font-bold text-white transition-all duration-300 bg-primary-600 border border-transparent rounded-full hover:bg-primary-700 shadow-xl shadow-primary/30 hover:shadow-primary/50 hover:-translate-y-1">
+          {/* Description */}
+          <p className="text-lg md:text-xl text-slate-500 mb-10 leading-relaxed max-w-2xl mx-auto leading-normal opacity-0 animate-fade-in-up" style={{ animationDelay: '0.4s', animationFillMode: 'forwards' }}>
+            <span className="text-primary font-semibold tracking-tight">AI powered</span> cloud-based Billing & ERP platform built for owners who want real-time visibility, smarter decisions, and complete control.
+          </p>
+
+          {/* CTA Buttons */}
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center opacity-0 animate-fade-in-up" style={{ animationDelay: '0.5s', animationFillMode: 'forwards' }}>
+            <button 
+              onClick={() => {
+                window.open('https://aibillo-frontend.vercel.app/register', '_blank');
+              }}
+              className="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 text-base font-bold text-white transition-all duration-300 bg-primary-600 border border-transparent rounded-full hover:bg-primary-700 shadow-xl shadow-primary/30 hover:shadow-primary/50 hover:-translate-y-1">
               Start Free Trial
             </button>
             <button className="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 text-base font-bold text-slate-700 transition-all duration-300 bg-white border border-slate-200 rounded-full hover:bg-slate-50 hover:border-slate-300 shadow-sm hover:shadow-md hover:-translate-y-1">
@@ -42,9 +51,10 @@ const Hero: React.FC = () => {
             </button>
           </div>
 
-          <div className="mt-10 flex items-center justify-center gap-6 text-sm font-semibold text-slate-500">
+          {/* Features */}
+          <div className="mt-10 flex items-center justify-center gap-6 text-sm font-semibold text-slate-500 opacity-0 animate-fade-in-up" style={{ animationDelay: '0.6s', animationFillMode: 'forwards' }}>
             <div className="flex items-center gap-1.5">
-              <span className="material-symbols-rounded material-filled text-green-500 text-sm" >
+              <span className="material-symbols-rounded material-filled text-green-500 text-sm">
                 credit_card_off
               </span>
               <span>No credit card</span>
@@ -57,7 +67,7 @@ const Hero: React.FC = () => {
         </div>
 
         {/* Dashboard Mockup */}
-        <div className="relative max-w-5xl mx-auto">
+        <div className="relative max-w-5xl mx-auto opacity-0 animate-fade-in-up" style={{ animationDelay: '0.7s', animationFillMode: 'forwards' }}>
           <div className="absolute -inset-1 bg-gradient-to-r from-primary-500/30 to-blue-500/30 rounded-[5rem] blur-2xl opacity-50"></div>
           <div className="relative bg-slate-900 rounded-3xl shadow-2xl border border-slate-800 p-2 md:p-3 overflow-hidden ring-1 ring-white/10">
             <div className="h-10 bg-slate-800 rounded-t-xl flex items-center px-4 gap-2 border-b border-white/5">
@@ -68,12 +78,9 @@ const Hero: React.FC = () => {
               </div>
               <div className="ml-4 flex-1 max-w-xl">
                 <div className="h-6 bg-slate-900/50 rounded-md border border-white/5 flex items-center px-3 text-[10px] text-slate-500 font-mono">
-                    <span
-                      className="material-symbols-outlined mr-2 align-middle"
-                      style={{ fontSize: "10px" }}
-                    >
-                      lock
-                    </span>
+                  <span className="material-symbols-outlined mr-2 align-middle" style={{ fontSize: "10px" }}>
+                    lock
+                  </span>
                   billing.aibillo.com/dashboard
                 </div>
               </div>
@@ -82,13 +89,14 @@ const Hero: React.FC = () => {
               <img 
                 src={DashboardImg}
                 alt="Dashboard UI" 
+                loading="eager"
                 className="w-full h-full object-cover object-top opacity-100 group-hover:scale-[1.02] transition-transform duration-1000"
               />
             </div>
           </div>
 
           {/* Floating Widget 1 */}
-          <div className="hidden lg:block absolute -bottom-10 -left-16 w-64 bg-white p-5 rounded-2xl shadow-xl border border-slate-100 z-20 animate-float">
+          <div className="hidden lg:block absolute -bottom-10 -left-16 w-64 bg-white p-5 rounded-2xl shadow-xl border border-slate-100 z-20 animate-float opacity-0 animate-fade-in-left" style={{ animationDelay: '0.9s', animationFillMode: 'forwards' }}>
             <div className="flex items-center justify-between mb-4">
               <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Device Sync</span>
               <span className="flex h-2 w-2 relative">
@@ -101,14 +109,14 @@ const Hero: React.FC = () => {
                 <span className="material-symbols-outlined text-2xl font-light">smartphone</span>
               </div>
               <div>
-                <p className="text-sm font-bold text-slate-900">Mobile POS</p>
-                <p className="text-[11px] text-slate-500 mt-0.5 leading-tight">Inventory updated from New York Store</p>
+                <p className="text-sm font-bold text-slate-900">Mobile Business Control</p>
+                <p className="text-[11px] text-slate-500 mt-0.5 leading-tight">View live updates and run your business seamlessly from your mobile.</p>
               </div>
             </div>
           </div>
 
           {/* Floating Widget 2 */}
-          <div className="hidden lg:block absolute top-12 -right-16 w-72 bg-white p-5 rounded-2xl shadow-xl border border-slate-100 z-20 animate-float-delayed">
+          <div className="hidden lg:block absolute top-12 -right-16 w-72 bg-white p-5 rounded-2xl shadow-xl border border-slate-100 z-20 animate-float-delayed opacity-0 animate-fade-in-right" style={{ animationDelay: '1s', animationFillMode: 'forwards' }}>
             <div className="flex justify-between items-start mb-2">
               <div>
                 <p className="text-[10px] text-slate-400 font-bold uppercase tracking-widest">Total Revenue</p>
@@ -131,7 +139,7 @@ const Hero: React.FC = () => {
         </div>
 
         {/* Partners */}
-        <div className="mt-32 text-center">
+        <div className="mt-32 text-center opacity-0 animate-fade-in-up" style={{ animationDelay: '1.1s', animationFillMode: 'forwards' }}>
           <p className="text-[11px] font-bold text-slate-400 uppercase tracking-[0.3em] mb-12">Powering 2,500+ Modern Businesses</p>
           <div className="flex flex-wrap justify-center items-center gap-x-12 lg:gap-x-20 gap-y-8 opacity-50 grayscale">
             {[
@@ -149,6 +157,8 @@ const Hero: React.FC = () => {
           </div>
         </div>
       </div>
+
+      
     </section>
   );
 };

@@ -18,7 +18,12 @@ const CTA: React.FC = () => {
             <p className="text-primary-100 text-lg md:text-2xl mb-12 max-w-2xl mx-auto leading-relaxed">
               Join thousands of smart business owners using AIBillo. <br className="hidden sm:block" /> Set up is free, fast, and easy.
             </p>
-            <div className="flex flex-col sm:flex-row gap-5 justify-center items-center">
+                    <div className="flex flex-col sm:flex-row gap-5 justify-center items-center" onClick={() => {
+            window.open(
+              'https://aibillo-frontend.vercel.app/register',
+              '_blank'
+            );
+          }}>
               <button className="w-full sm:w-auto px-10 py-5 bg-white text-primary-700 font-black rounded-full shadow-2xl hover:bg-slate-50 hover:-translate-y-1 transition-all duration-300">
                 Get Started for Free
               </button>

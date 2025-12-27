@@ -10,6 +10,10 @@ import CTA from './components/CTA';
 import Footer from './components/Footer';
 import FAQ from './components/FAQ';
 
+document.fonts.ready.then(() => {
+  document.documentElement.classList.add('icons-loaded');
+});
+
 const App: React.FC = () => {
   return (
     <div className="min-h-screen bg-white">
@@ -31,9 +35,9 @@ const App: React.FC = () => {
           <MobileFirst />
         </section>
         
-        <section id="testimonials">
+        {/* <section id="testimonials">
           <Testimonials />
-        </section>
+        </section> */}
 
         <section id="FAQ">
           <FAQ />

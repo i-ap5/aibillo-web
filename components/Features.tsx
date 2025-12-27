@@ -3,6 +3,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { AreaChart, Area, XAxis, Tooltip, ResponsiveContainer, CartesianGrid, YAxis } from 'recharts';
 import { Activity, Package, TrendingUp, Rocket, Zap, IdCard, FilePlus2, ArrowRight, ShieldCheck, MapPin, IdCardIcon } from 'lucide-react';
 import { IdentificationIcon, BoltIcon, DocumentArrowUpIcon } from "@heroicons/react/24/solid";
+import { delay, motion } from 'framer-motion';
 
 // --- Local Component: FeatureCard ---
 interface FeatureCardProps {
@@ -14,6 +15,7 @@ interface FeatureCardProps {
   badgeText: string;
   badgeLabel: string;
   customContent?: React.ReactNode;
+  delay?: number;
 }
 
 const FeatureCard: React.FC<FeatureCardProps> = ({ 
@@ -24,11 +26,29 @@ const FeatureCard: React.FC<FeatureCardProps> = ({
   description, 
   badgeText, 
   badgeLabel, 
-  customContent
+  customContent,
+  delay = 0
 }) => {
   const divRef = useRef<HTMLDivElement>(null);
   const [position, setPosition] = useState({ x: 0, y: 0 });
+const [isVisible, setIsVisible] = useState(false);
 
+useEffect(() => {
+  const observer = new IntersectionObserver(
+    ([entry]) => {
+      if (entry.isIntersecting) {
+        setIsVisible(true);
+      }
+    },
+    { threshold: 0.1 }
+  );
+  if (divRef.current) {
+      observer.observe(divRef.current);
+    }
+
+    return () => observer.disconnect();
+  // ... observer setup
+}, []);
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     if (!divRef.current) return;
     const div = divRef.current;
@@ -40,8 +60,10 @@ const FeatureCard: React.FC<FeatureCardProps> = ({
     <div
       ref={divRef}
       onMouseMove={handleMouseMove}
-      className="relative flex flex-col h-full overflow-hidden border rounded-[2.5rem] border-slate-200/60 bg-white p-8 transition-all duration-700 hover:shadow-[0_40px_80px_-15px_rgba(0,0,0,0.1)] group cursor-default"
+      className={`relative flex flex-col h-full overflow-hidden border rounded-[2.5rem] border-slate-200/60 bg-white p-8 transition-all duration-700 hover:shadow-[0_40px_80px_-15px_rgba(0,0,0,0.1)] group cursor-default opacity-0 ${isVisible ? 'animate-fade-in-up' : ''}`}
+      style={{ animationDelay: `${delay}s`, animationFillMode: 'forwards' }}
     >
+
       {/* Interactive Spotlight Effect */}
       <div
         className="pointer-events-none absolute -inset-px transition-opacity duration-500 opacity-0 group-hover:opacity-100"
@@ -107,8 +129,8 @@ const FeaturesSection: React.FC = () => {
       setIsSyncing(true);
       const tips = [
         "Friday evening rush predicted soon.",
-        "Milk stock trending low for tomorrow.",
-        "Beverage demand up by 12% today.",
+        "Saree stock trending low for tomorrow.",
+        "Shirt Black demand up by 12% today.",
         "Suggesting +20 units for SKU-402.",
         "Optimizing your weekend inventory..."
       ];
@@ -132,15 +154,37 @@ const FeaturesSection: React.FC = () => {
 
       <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
         <div className="text-center max-w-3xl mx-auto mb-24">
-          <div className="inline-block px-4 py-1.5 rounded-full bg-primary-50 text-primary-700 text-[10px] font-black uppercase tracking-[0.3em] mb-6 border border-primary-100 shadow-sm">
+          {/* <div className="inline-block px-4 py-1.5 rounded-full bg-primary-50 text-primary-700 text-[10px] font-black uppercase tracking-[0.3em] mb-6 border border-primary-100 shadow-sm">
             Core Features
-          </div>
-          <h3 className="font-heading text-5xl md:text-6xl font-black text-slate-900 mb-8 tracking-tighter leading-tighter">
+          </div> */}
+           <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-50 border border-slate-100 mb-6"
+          >
+            <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
+            <span className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-500">Core Features</span>
+          </motion.div>
+          <motion.h3 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="font-heading text-5xl md:text-6xl font-black text-slate-900 mb-8 tracking-tighter leading-tighter"
+          >
             Designed for <span className="text-primary">Business Owners</span> Who Want Clarity
-          </h3>
-          <p className="text-slate-500 text-xl leading-relaxed font-medium">
-            AiBillo gives business owners real-time clarity and smart insights to run their business with confidence, without complexity.
-          </p>
+          </motion.h3>
+
+          <motion.p 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="text-slate-500 text-xl leading-relaxed font-medium"
+            >
+              AiBillo gives business owners real-time clarity and smart insights to run their business with confidence, without complexity.
+            </motion.p>
         </div>
 
         {/* Top Feature Grid */}
@@ -157,6 +201,7 @@ const FeaturesSection: React.FC = () => {
             description="Generate GST-compliant invoices 3x faster with smart shortcuts. Auto-calculates taxes instantly."
             badgeLabel="Performance"
             badgeText="Hyper-Speed"
+            delay={0.1}
             customContent={
               <div className="p-5 bg-slate-50 rounded-3xl border border-white shadow-inner">
                 <div className="flex items-center justify-between mb-4">
@@ -191,10 +236,12 @@ const FeaturesSection: React.FC = () => {
             description="Real-time staff tracking with geo-fencing. Manage shifts and payroll performance automatically."
             badgeLabel="Tracking"
             badgeText="Live Monitoring"
+                        delay={0.2}
+
             customContent={
               <div className="space-y-3">
                 {[
-                  { name: "Afsal", time: "09:00 AM", status: "Check-IN", active: true, tag: "Geo-fenced" },
+                  { name: "Asal", time: "09:00 AM", status: "Check-IN", active: true, tag: "Geo-fenced" },
                   { name: "Shivan", time: "06:00 PM", status: "Check-OUT", active: false, tag: "Geo-fenced" }
                 ].map((staff, i) => (
                   <div key={i} className="flex items-center justify-between p-3.5 bg-white rounded-2xl border border-slate-100 shadow-sm transition-all group-hover:border-blue-100 hover:bg-blue-50/30">
@@ -233,10 +280,11 @@ const FeaturesSection: React.FC = () => {
             description="Import 1000+ items instantly via Excel/CSV. Smart mapping auto-detects fields."
             badgeLabel="Automation"
             badgeText="One-Click Import"
+            delay={0.3}
             customContent={
               <div className="p-6 bg-slate-50 rounded-[2rem] border-2 border-dashed border-slate-200 flex flex-col items-center justify-center text-center group-hover:border-emerald-200 group-hover:bg-emerald-50/20 transition-all relative overflow-hidden">
                  <div className="relative z-10 w-12 h-12 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center mb-3 shadow-lg shadow-emerald-200/20">
-                    <FilePlus2 size={24} strokeWidth={3} />
+                    <FilePlus2 size={24} strokeWidth={2} />
                  </div>
                  <div className="relative z-10 text-[12px] font-black text-slate-900 mb-1">products_v2.csv</div>
                  <div className="relative z-10 flex items-center gap-1.5 px-3 py-1 bg-emerald-500 rounded-full mb-4 shadow-sm">
@@ -253,7 +301,7 @@ const FeaturesSection: React.FC = () => {
         </div>
 
         {/* AI Purchase Prediction Section */}
-        <div className="bg-slate-950 rounded-[3.5rem] p-6 md:p-10 lg:p-14 shadow-[0_60px_100px_-25px_rgba(0,0,0,0.5)] relative overflow-hidden border border-slate-800/80">
+        <div className="bg-slate-950 rounded-[3rem] p-6 md:p-10 lg:p-14 shadow-[0_60px_100px_-25px_rgba(0,0,0,0.5)] relative overflow-hidden border border-slate-800/80">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_0%,rgba(225,29,72,0.18),transparent_50%)]"></div>
           
           <div className="relative z-10 flex flex-col lg:flex-row gap-12 items-stretch">
@@ -274,9 +322,9 @@ const FeaturesSection: React.FC = () => {
               <div className="space-y-3 flex-grow">
                 <h5 className="text-[10px] font-black text-slate-500 uppercase tracking-[0.3em] mb-4 px-1">Inventory Forecast</h5>
                 {[
-                  { name: "Espresso Blend", status: "Critical", qty: "+40kg", color: "text-primary-500" },
-                  { name: "Oat Milk 1L", status: "Low Stock", qty: "+12 units", color: "text-orange-400" },
-                  { name: "Cinnamon Syrup", status: "Optimal", qty: "+5 units", color: "text-slate-500" }
+                  { name: "Silk Saree", status: "Critical", qty: "+40 Pcs", color: "text-primary-500" },
+                  { name: "Shirt Polo", status: "Low Stock", qty: "+12 units", color: "text-orange-400" },
+                  { name: "Kurta", status: "Optimal", qty: "+5 units", color: "text-slate-500" }
                 ].map((item, i) => (
                   <div key={i} className="flex items-center justify-between p-4 bg-white/[0.03] rounded-3xl border border-white/5 hover:bg-white/[0.07] transition-all cursor-pointer group/item">
                     <div className="flex items-center gap-4">
@@ -305,7 +353,7 @@ const FeaturesSection: React.FC = () => {
             </div>
 
             {/* Right Column: Chart */}
-            <div className="lg:w-[65%] bg-slate-900/40 rounded-[3rem] border border-white/[0.04] p-6 md:p-10 relative overflow-hidden flex flex-col h-[400px] sm:h-[450px] lg:h-auto min-h-[400px]">
+            <div className="lg:w-[65%] bg-slate-900/40 rounded-[2rem] border border-white/[0.04] p-6 md:p-10 relative overflow-hidden flex flex-col h-[400px] sm:h-[450px] lg:h-auto min-h-[400px]">
               <div className="absolute inset-0 pointer-events-none opacity-[0.04]">
                 <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.05)_1px,transparent_1px)] bg-[length:40px_40px]"></div>
                 <div className="w-full h-[2px] bg-primary-500 absolute top-0 animate-[scan_6s_linear_infinite]"></div>
@@ -346,6 +394,7 @@ const FeaturesSection: React.FC = () => {
                     />
                     <YAxis hide />
                     <Tooltip 
+                      formatter={(value: number) => Math.round(value)}
                       cursor={{ stroke: '#E11D48', strokeWidth: 1.5 }}
                       contentStyle={{ backgroundColor: '#000', border: '1px solid #333', borderRadius: '15px', fontSize: '12px', fontWeight: 'bold', color: '#fff' }}
                     />

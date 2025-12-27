@@ -1,81 +1,154 @@
-
 import React from 'react';
+import { motion } from 'framer-motion';
 
 const MobileFirst: React.FC = () => {
   return (
-    <section className="py-24 bg-slate-900 text-white relative overflow-hidden">
-      {/* Background Dots */}
-      <div className="absolute inset-0 opacity-10" style={{ backgroundImage: 'radial-gradient(#ffffff 1px, transparent 1px)', backgroundSize: '32px 32px' }}></div>
-      <div className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-indigo-600/10 rounded-full blur-[150px]"></div>
+    <section className="py-24 bg-[#0B0F19] text-white relative overflow-hidden font-sans">
+      {/* Dynamic Background Elements */}
+      <div className="absolute inset-0 opacity-20" style={{ backgroundImage: 'radial-gradient(#334155 1px, transparent 1px)', backgroundSize: '40px 40px' }}></div>
+      <div className="absolute top-[-10%] right-[-10%] w-[500px] h-[500px] bg-[#e11d48]/10 rounded-full blur-[120px]"></div>
+      <div className="absolute bottom-[-10%] left-[-10%] w-[500px] h-[500px] bg-blue-600/10 rounded-full blur-[120px]"></div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="flex flex-col lg:flex-row items-center gap-20">
-          <div className="lg:w-5/12 order-2 lg:order-1">
-            <div className="relative group perspective-1000">
-              {/* Phone Mockup */}
-              <div className="w-[300px] mx-auto lg:mx-0 bg-slate-950 rounded-[3rem] border-[10px] border-slate-800 overflow-hidden shadow-2xl relative z-20 transition-transform duration-700 hover:rotate-y-6">
-                <div className="absolute top-0 left-1/2 -translate-x-1/2 h-7 w-36 bg-slate-800 rounded-b-2xl z-30 flex items-center justify-center">
-                  <div className="w-12 h-1 bg-slate-900 rounded-full"></div>
-                </div>
-                <div className="h-[600px] bg-slate-100 relative overflow-hidden">
-                  <img 
-                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuBDGWDjwHTHxZYSY8deQT9Z649Hy0X_tfW1H2shYSvbLGg8bvzOMAJxZSxIVjcHPQL4Uvr2BJY2AY6eCMLIf1kKVvdCWW--XD-Gf-EjmUQun6MjxBo68nquGHHKkLtcfmQM6cN7PEM0D5-YJcioup7aSHv3QyBMqEEn0v9yPhgmnrfolPf5SKJdfFBMDXzUwXTkmQ7dAtYoX61gbsONE8et9ixssy9np7OpSdIoofsDc-_2pGmHTSa04ziF0gzHadmaPl_5U9nHSApF" 
-                    alt="Mobile App"
-                    className="w-full h-full object-cover"
-                  />
-                  {/* Floating App UI Piece */}
-                  <div className="absolute bottom-0 left-0 right-0 p-5 bg-white/95 backdrop-blur-md border-t border-slate-200">
-                    <div className="flex justify-between items-center">
-                      <div>
-                        <p className="text-[10px] text-slate-400 font-extrabold uppercase tracking-widest">Today's Sales</p>
-                        <p className="text-2xl font-black text-slate-900">$1,240.50</p>
-                      </div>
-                      <div className="w-12 h-12 bg-primary-600 rounded-2xl flex items-center justify-center text-white shadow-lg shadow-primary/30">
-                        <span className="material-symbols-outlined text-2xl">add</span>
-                      </div>
+      <div className="max-w-7xl mx-auto px-6 relative z-10">
+        <div className="flex flex-col lg:flex-row items-center gap-16 lg:gap-24">
+          
+          {/* LEFT: The Interactive Phone Mockup */}
+          <div className="lg:w-1/2 order-2 lg:order-1 relative">
+            <motion.div 
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
+              className="relative"
+            >
+              {/* Main Phone Frame */}
+              <div className="relative w-[280px] md:w-[320px] mx-auto bg-slate-950 rounded-[3rem] border-[8px] border-slate-800 shadow-[0_50px_100px_-20px_rgba(0,0,0,0.5)] overflow-hidden">
+                <div className="h-[600px] bg-slate-900 relative">
+                  {/* Internal App UI Mockup */}
+                  <div className="p-6 pt-12">
+                    <div className="w-10 h-10 bg-[#e11d48] rounded-xl mb-6 flex items-center justify-center">
+                      <span className="material-symbols-rounded text-white">grid_view</span>
                     </div>
+                    <div className="h-4 w-32 bg-slate-800 rounded-full mb-2" />
+                    <div className="h-3 w-20 bg-slate-800/50 rounded-full mb-8" />
+                    
+                    <div className="space-y-4">
+                      {[1, 2, 3].map((i) => (
+                        <div key={i} className="h-16 bg-slate-800/40 rounded-2xl border border-slate-700/50" />
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Camera Scanning Overlay (Representing Bill Upload) */}
+                  <motion.div 
+                    animate={{ opacity: [0.4, 0.7, 0.4] }}
+                    transition={{ repeat: Infinity, duration: 3 }}
+                    className="absolute inset-0 bg-gradient-to-b from-transparent via-[#e11d48]/5 to-transparent pointer-events-none" 
+                  />
+                </div>
+              </div>
+
+              {/* FLOATING CARD 1: Attendance Tracking */}
+              <motion.div 
+                animate={{ y: [0, -15, 0] }}
+                transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}
+                className="absolute -top-6 -right-4 md:right-0 w-48 bg-white p-4 rounded-2xl shadow-2xl z-20"
+              >
+                <div className="flex items-center gap-3 mb-3">
+                  <div className="w-8 h-8 rounded-full bg-green-100 flex items-center justify-center">
+                    <span className="material-symbols-rounded text-green-600 text-sm">how_to_reg</span>
+                  </div>
+                  <div>
+                    <p className="text-[10px] text-slate-400 font-bold uppercase tracking-tight">Attendance</p>
+                    <p className="text-xs font-black text-slate-900">Abhishek • <span className="text-green-600">IN</span></p>
+                  </div>
+                </div>
+                <div className="w-full h-1.5 bg-slate-100 rounded-full overflow-hidden">
+                  <div className="w-[70%] h-full bg-green-500" />
+                </div>
+              </motion.div>
+
+              {/* FLOATING CARD 2: Inventory Upload */}
+              <motion.div 
+                animate={{ y: [0, 15, 0] }}
+                transition={{ repeat: Infinity, duration: 5, ease: "easeInOut", delay: 1 }}
+                className="absolute bottom-12 -left-8 md:left-0 w-56 bg-slate-800 p-4 rounded-2xl border border-slate-700 shadow-2xl z-20 backdrop-blur-xl"
+              >
+                <div className="flex items-center gap-3 mb-2">
+                  <div className="w-8 h-8 rounded-lg bg-[#e11d48] flex items-center justify-center">
+                    <span className="material-symbols-rounded text-white text-sm">upload_file</span>
+                  </div>
+                  <p className="text-xs font-bold text-white">Uploading Bill...</p>
+                </div>
+                <p className="text-[10px] text-slate-400 leading-tight mb-3">AI is parsing invoice #INV-2024 to Inventory.</p>
+                <div className="flex justify-between items-center text-[9px] font-black text-[#e11d48] uppercase tracking-widest">
+                  <span>Scanning</span>
+                  <span>84%</span>
+                </div>
+              </motion.div>
+            </motion.div>
+          </div>
+
+          {/* RIGHT: Content Area */}
+          <div className="lg:w-1/2 order-1 lg:order-2">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+            >
+              <span className="text-[#e11d48] font-black tracking-[0.3em] uppercase text-[10px] mb-4 block">
+                Mobile-First Command
+              </span>
+              <h2 className="font-heading text-4xl md:text-6xl font-black mb-8 leading-[1.1] tracking-tighter">
+                Your Business <br /> In Your <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#e11d48] to-rose-400">Pocket.</span>
+              </h2>
+              <p className="text-slate-400 text-lg leading-relaxed mb-12 max-w-xl">
+                The AiBillo mobile app isn't just a viewer—it's a control center. Manage your team’s presence and stock levels from the palm of your hand.
+              </p>
+
+              <div className="grid gap-8">
+                {/* Feature 1: Attendance */}
+                <div className="flex items-start gap-6 group">
+                  <div className="flex-shrink-0 w-14 h-14 rounded-2xl bg-slate-800 border border-slate-700 flex items-center justify-center text-[#e11d48] transition-all group-hover:bg-[#e11d48] group-hover:text-white group-hover:shadow-[0_0_30px_rgba(225,29,72,0.3)]">
+                    <span className="material-symbols-rounded text-3xl">fingerprint</span>
+                  </div>
+                  <div>
+                    <h4 className="text-xl font-black text-white mb-2">Attendance Tracking</h4>
+                    <p className="text-slate-400 text-sm leading-relaxed">
+                      Real-time staff clock-in/out with GPS verification. Monitor team availability and shift status instantly.
+                    </p>
+                  </div>
+                </div>
+
+                {/* Feature 2: Bill Upload */}
+                <div className="flex items-start gap-6 group">
+                  <div className="flex-shrink-0 w-14 h-14 rounded-2xl bg-slate-800 border border-slate-700 flex items-center justify-center text-[#e11d48] transition-all group-hover:bg-[#e11d48] group-hover:text-white group-hover:shadow-[0_0_30px_rgba(225,29,72,0.3)]">
+                    <span className="material-symbols-rounded text-3xl">document_scanner</span>
+                  </div>
+                  <div>
+                    <h4 className="text-xl font-black text-white mb-2">Smart Bill Upload</h4>
+                    <p className="text-slate-400 text-sm leading-relaxed">
+                      Snap a photo of any purchase bill. Our AI automatically updates your inventory stock levels and tax records.
+                    </p>
                   </div>
                 </div>
               </div>
-              {/* Layered background card */}
-              <div className="hidden lg:block absolute top-24 -right-32 w-[550px] h-[380px] bg-slate-800/60 backdrop-blur rounded-3xl border border-white/5 -z-10 group-hover:translate-x-8 transition-transform duration-700">
-                <div className="h-10 border-b border-white/5 bg-slate-950/30 rounded-t-3xl flex items-center px-6 gap-2">
-                  <div className="w-2.5 h-2.5 rounded-full bg-slate-700"></div>
-                  <div className="w-2.5 h-2.5 rounded-full bg-slate-700"></div>
-                  <div className="w-2.5 h-2.5 rounded-full bg-slate-700"></div>
-                </div>
-              </div>
-            </div>
-          </div>
 
-          <div className="lg:w-7/12 order-1 lg:order-2">
-            <h2 className="text-primary-400 font-bold tracking-[0.2em] uppercase text-xs mb-6">Mobile First Experience</h2>
-            <h3 className="text-4xl md:text-6xl font-bold mb-8 leading-tight">Your Business <br />in Your Pocket.</h3>
-            <p className="text-slate-400 text-lg leading-relaxed mb-12 max-w-xl">
-              Don't be tied to a desk. AIBillo's mobile app gives you full control. Create invoices, check stock, and get paid wherever you are.
-            </p>
-
-            <div className="grid sm:grid-cols-2 gap-10">
-              <div className="flex items-start gap-5">
-                <div className="flex-shrink-0 w-12 h-12 rounded-2xl bg-slate-800 flex items-center justify-center text-primary-400 border border-slate-700 shadow-xl">
-                  <span className="material-symbols-outlined text-2xl">qr_code_scanner</span>
-                </div>
-                <div>
-                  <h4 className="text-xl font-bold text-white mb-2">Barcode Scanning</h4>
-                  <p className="text-slate-400 text-sm leading-relaxed">Use your phone's camera to scan items and add them to invoices instantly.</p>
-                </div>
-              </div>
-              <div className="flex items-start gap-5">
-                <div className="flex-shrink-0 w-12 h-12 rounded-2xl bg-slate-800 flex items-center justify-center text-primary-400 border border-slate-700 shadow-xl">
-                  <span className="material-symbols-outlined text-2xl">notifications_active</span>
-                </div>
-                <div>
-                  <h4 className="text-xl font-bold text-white mb-2">Instant Notifications</h4>
-                  <p className="text-slate-400 text-sm leading-relaxed">Get alerted immediately when stock is low or a payment is received.</p>
-                </div>
-              </div>
-            </div>
+              {/* Centered CTA (Optional) */}
+              <motion.div 
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                transition={{ delay: 0.5 }}
+                className="mt-12"
+              >
+                <button className="px-8 py-4 bg-white text-slate-900 font-black rounded-2xl hover:bg-[#e11d48] hover:text-white transition-all duration-300 shadow-xl" onClick={() => window.open('https://play.google.com/store/apps/details?id=com.trowcode.aibillo', '_blank')}>
+                  Download Mobile App
+                </button>
+              </motion.div>
+            </motion.div>
           </div>
+          
         </div>
       </div>
     </section>

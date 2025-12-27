@@ -1,4 +1,5 @@
 
+import { motion } from 'framer-motion';
 import React, { useState, useMemo } from 'react';
 
 interface FAQItem {
@@ -22,17 +23,17 @@ const FAQ: React.FC = () => {
     { 
       id: '1',
       q: "Is there a free trial available?", 
-      a: "Yes! We offer a 14-day comprehensive free trial that gives you access to all features, including inventory management, multi-store capabilities, and analytics. No credit card is required to start your trial.", 
+      a: "Yes! We offer a 48-hour free trial with full access to all features, including inventory management and analytics. No credit card is required to get started.", 
       tag: "Trial",
       icon: "experiment",
       category: "General"
     },
-    { 
+    {
       id: '2',
-      q: "Can I manage multiple store locations?", 
-      a: "Absolutely. AIBillo is built for growth. Our Enterprise plan specifically caters to multi-store management, allowing you to sync inventory across locations, transfer stock, and view consolidated reports from a single dashboard.", 
-      tag: "Scaling",
-      icon: "hub",
+      q: "How many systems can be set up in a single store?",
+      a: "You can set up and use up to 5 systems within a single store. This allows multiple counters or staff members to work simultaneously while keeping inventory, billing, and reports perfectly synchronized.",
+      tag: "Setup",
+      icon: "devices",
       category: "General"
     },
     { 
@@ -51,46 +52,23 @@ const FAQ: React.FC = () => {
       icon: "database_upload",
       category: "Billing"
     },
-    { 
+    {
       id: '5',
-      q: "Does the app work offline?", 
-      a: "Yes, our mobile POS is designed to work offline. You can continue billing and managing sales without an internet connection. Once you're back online, all data automatically syncs to the cloud.", 
-      tag: "Technical",
-      icon: "wifi_off",
-      category: "Technical"
+      q: "Can I access my store from anywhere in the world?",
+      a: "Yes, you can monitor your store’s performance and growth from anywhere in the world using our web platform or mobile app. Your data stays securely synced in real time, no matter where you are.",
+      tag: "Access",
+      icon: "globe",
+      category: "General"
     },
     { 
       id: '6',
-      q: "What payment methods do you support?", 
-      a: "We support all major credit cards, UPI, digital wallets, and bank transfers. Our system also integrates with popular payment gateways for automatic reconciliation.", 
-      tag: "Payments",
-      icon: "payments",
-      category: "Billing"
-    },
-    { 
-      id: '7',
-      q: "How do I handle tax calculations?", 
-      a: "AIBillo has a built-in tax engine that automatically calculates GST, VAT, or Sales Tax based on your region and product categories. You can also set custom tax rules.", 
-      tag: "Compliance",
-      icon: "account_balance",
-      category: "Billing"
-    },
-    { 
-      id: '8',
       q: "Is there a limit on transactions?", 
       a: "Our basic plans have generous limits, while Enterprise plans offer unlimited transactions and storage. We grow with your business.", 
       tag: "Limits",
       icon: "speed",
       category: "Technical"
     },
-    { 
-      id: '9',
-      q: "Can I generate GST reports?", 
-      a: "Yes, you can generate one-click GST ready reports for filing. The system organizes all your sales and purchases with relevant HSN codes automatically.", 
-      tag: "Reporting",
-      icon: "description",
-      category: "Billing"
-    }
+    
   ];
 
   const filteredFaqs = useMemo(() => {
@@ -171,11 +149,20 @@ const FAQ: React.FC = () => {
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-slate-200 text-[11px] font-bold text-primary-600 uppercase tracking-widest mb-6 shadow-sm">
+          {/* <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-slate-200 text-[11px] font-bold text-primary-600 uppercase tracking-widest mb-6 shadow-sm">
             <span className="material-symbols-outlined text-sm">help</span>
             Support Center
-          </div>
-          <h2 className="text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight mb-6">
+          </div> */}
+           <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-50 border border-slate-200 mb-6"
+          >
+            <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
+            <span className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-500">Support Center</span>
+          </motion.div>
+          <h2 className=" font-heading text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight mb-6">
             Everything you <span className="text-gradient">need to know</span>
           </h2>
           <p className="text-lg text-slate-600 leading-relaxed mb-10">
@@ -294,11 +281,19 @@ const FAQ: React.FC = () => {
               Our experts are online and ready to help you optimize your store's workflow or answer technical questions.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="px-10 py-5 bg-primary text-white font-bold rounded-2xl hover:bg-primary-600 transition-all flex items-center justify-center gap-3 shadow-xl shadow-primary/20 hover:shadow-primary/40 hover:-translate-y-1">
+              <button  onClick={() => {
+                            window.open(
+                              'https://wa.me/+918590000918?text=Hello%20AiBillo%20team%2C%20I%20need%20help',
+                              '_blank'
+                            );
+                          }}
+              className="px-10 py-5 bg-primary text-white font-bold rounded-2xl hover:bg-primary-600 transition-all flex items-center justify-center gap-3 shadow-xl shadow-primary/20 hover:shadow-primary/40 hover:-translate-y-1">
                 <span className="material-symbols-outlined">chat_bubble</span>
                 Start Live Chat
               </button>
-              <button className="px-10 py-5 bg-white/10 text-white font-bold rounded-2xl hover:bg-white/20 transition-all flex items-center justify-center gap-3 backdrop-blur-md border border-white/5 hover:-translate-y-1">
+              <button onClick={() => window.location.href = 'mailto:info@aibillo.com'}
+                       className="px-10 py-5 bg-white/10 text-white font-bold rounded-2xl hover:bg-white/20 transition-all flex items-center justify-center gap-3 backdrop-blur-md border border-white/5 hover:-translate-y-1">
+              
                 <span className="material-symbols-outlined">alternate_email</span>
                 Email Support
               </button>
