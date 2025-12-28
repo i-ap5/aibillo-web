@@ -353,7 +353,7 @@ const FeaturesSection: React.FC = () => {
             </div>
 
             {/* Right Column: Chart */}
-            <div className="lg:w-[65%] bg-slate-900/40 rounded-[2rem] border border-white/[0.04] p-6 md:p-10 relative overflow-hidden flex flex-col h-[400px] sm:h-[450px] lg:h-auto min-h-[400px]">
+            <div className="lg:w-[65%] bg-slate-900/40 rounded-[2rem] border border-white/[0.04] p-6 md:p-10 relative overflow-hidden grid grid-rows-[auto_1fr_auto] min-h-[400px]">
               <div className="absolute inset-0 pointer-events-none opacity-[0.04]">
                 <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.05)_1px,transparent_1px)] bg-[length:40px_40px]"></div>
                 <div className="w-full h-[2px] bg-primary-500 absolute top-0 animate-[scan_6s_linear_infinite]"></div>
@@ -373,7 +373,7 @@ const FeaturesSection: React.FC = () => {
                 </div>
               </div>
 
-              <div className="relative z-10 w-full flex-grow min-h-0">
+<             div className="relative z-10 w-full min-h-[200px]">
                 <ResponsiveContainer width="100%" height="100%">
                   <AreaChart data={chartData} margin={{ top: 10, right: 0, left: -25, bottom: 0 }}>
                     <defs>
