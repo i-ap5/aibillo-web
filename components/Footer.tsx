@@ -94,7 +94,7 @@ const Footer: React.FC = () => {
   {/* Left: Copyright + Designer */}
   <div className="flex flex-col items-center md:items-start gap-1">
     <p className="text-xs font-medium text-slate-600">
-      © 2025 AIBillo Inc. All rights reserved.
+      © 2026 AIBillo Inc. All rights reserved.
     </p>
     <a
       href="https://trowcode.com"
