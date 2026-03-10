@@ -1,5 +1,5 @@
 import React from 'react';
-import DashboardImg from '../assets/Dashboard.png';
+
 
 const Hero: React.FC = () => {
   return (
@@ -38,7 +38,7 @@ const Hero: React.FC = () => {
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center opacity-0 animate-fade-in-up" style={{ animationDelay: '0.5s', animationFillMode: 'forwards' }}>
-            <button 
+            <button
               onClick={() => {
                 window.open('https://aibillo-frontend.vercel.app/register', '_blank');
               }}
@@ -86,9 +86,9 @@ const Hero: React.FC = () => {
               </div>
             </div>
             <div className="relative aspect-[16/10] bg-slate-950 rounded-b-lg overflow-hidden group">
-              <img 
-                src={DashboardImg}
-                alt="Dashboard UI" 
+              <img
+                src="/assets/Dashboard.png"
+                alt="Dashboard UI"
                 loading="eager"
                 className="w-full h-full object-cover object-top opacity-100 group-hover:scale-[1.02] transition-transform duration-1000"
               />
@@ -128,9 +128,9 @@ const Hero: React.FC = () => {
             </div>
             <div className="flex items-end gap-1.5 h-12 mt-4">
               {[40, 60, 45, 80, 55, 100, 75].map((h, i) => (
-                <div 
-                  key={i} 
-                  className={`flex-1 rounded-t-sm transition-all duration-500 ${i === 5 ? 'bg-primary-500' : 'bg-primary-100'}`} 
+                <div
+                  key={i}
+                  className={`flex-1 rounded-t-sm transition-all duration-500 ${i === 5 ? 'bg-primary-500' : 'bg-primary-100'}`}
                   style={{ height: `${h}%` }}
                 ></div>
               ))}
@@ -158,7 +158,7 @@ const Hero: React.FC = () => {
         </div>
       </div>
 
-      
+
     </section>
   );
 };

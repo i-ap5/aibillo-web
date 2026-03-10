@@ -1,6 +1,9 @@
 
+
 import React, { useState, useEffect } from 'react';
-import AibilloLogo from "../assets/aibillo1.svg";
+
+
+
 
 
 
@@ -24,7 +27,7 @@ const Navbar: React.FC = () => {
           {/* Logo */}
           <div className="flex items-center gap-3 group cursor-pointer">
             <div className="w-10 h-10 bg-gradient-to-br from-primary-500 to-primary-700 rounded-xl flex items-center justify-center text-white shadow-lg shadow-primary/30 transform group-hover:scale-110 transition-transform duration-300">
-              <img src={AibilloLogo} alt="AiBillo Logo" className="w-8 h-8 fill-white" />
+              <img src="/assets/aibillo1.svg" alt="AiBillo Logo" className="w-8 h-8 fill-white" />
             </div>
            
 
