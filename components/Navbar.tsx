@@ -36,7 +36,7 @@ const Navbar: React.FC = () => {
 
           {/* Nav Links */}
           <div className="hidden md:flex items-center bg-slate-50/80 p-1.5 rounded-full border border-slate-200/60 backdrop-blur-sm">
-            {['Features', 'How it Works', 'Dashboard', 'Pricing'].map((item) => (
+            {['Features', 'How it Works', 'Pricing', 'Contact'].map((item) => (
               <a 
                 key={item}
                 href={`#${item.toLowerCase().replace(/\s+/g, '-')}`}
@@ -49,12 +49,12 @@ const Navbar: React.FC = () => {
 
           {/* CTA */}
           <div className="flex items-center gap-4">
-            <a href="#" className="hidden sm:block text-sm font-bold text-slate-700 hover:text-primary transition-colors"   onClick={() => window.open('https://aibillo-frontend.vercel.app/signin', '_blank')}>Log in</a>
+            <a href="#" className="hidden sm:block text-sm font-bold text-slate-700 hover:text-primary transition-colors"   onClick={() => window.open('https://app.aibillo.com/signin', '_blank')}>Log in</a>
             <a 
               href="#get-started" 
               className="inline-flex items-center justify-center px-6 py-2.5 text-sm font-bold rounded-full text-white bg-slate-900 hover:bg-primary transition-all duration-300 shadow-lg shadow-slate-900/10 hover:shadow-primary/30 group relative overflow-hidden"
             >
-              <span className="relative z-10 flex items-center"  onClick={() => window.open('https://aibillo-frontend.vercel.app/register', '_blank')}>
+              <span className="relative z-10 flex items-center"  onClick={() => window.open('https://app.aibillo.com/register', '_blank')}>
                 Get Started
                 <span className="material-symbols-outlined text-base ml-1.5 transition-transform group-hover:translate-x-1">arrow_forward</span>
               </span>

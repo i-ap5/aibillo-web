@@ -20,7 +20,7 @@ const CTA: React.FC = () => {
             </p>
                     <div className="flex flex-col sm:flex-row gap-5 justify-center items-center" onClick={() => {
             window.open(
-              'https://aibillo-frontend.vercel.app/register',
+              'https://app.aibillo.com/register',
               '_blank'
             );
           }}>

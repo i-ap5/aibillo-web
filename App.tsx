@@ -6,6 +6,9 @@ import Features from './components/Features';
 import HowItWorks from './components/HowItWorks';
 import MobileFirst from './components/MobileFirst';
 import Testimonials from './components/Testimonials';
+import WhoItsFor from './components/WhoItsFor';
+import Pricing from './components/Pricing';
+import Contact from './components/Contact';
 import CTA from './components/CTA';
 import Footer from './components/Footer';
 import FAQ from './components/FAQ';
@@ -34,14 +37,21 @@ const App: React.FC = () => {
         <section id="dashboard">
           <MobileFirst />
         </section>
-        
+
+        <WhoItsFor />
+
         {/* <section id="testimonials">
           <Testimonials />
         </section> */}
 
+        <Pricing />
+
         <section id="FAQ">
           <FAQ />
         </section>
+
+        <Contact />
+
         <CTA />
       </main>
       <Footer />

@@ -1,7 +1,7 @@
 
 import React from 'react';
 
-import { Linkedin, Instagram } from "lucide-react";
+import { Linkedin, Instagram, MapPin, Mail, Phone } from "lucide-react";
 
 
 const Footer: React.FC = () => {
@@ -21,9 +21,14 @@ const Footer: React.FC = () => {
               </div>
               <span className="text-2xl font-black tracking-tight">AiBillo</span>
             </div>
-            <p className="text-sm leading-relaxed mb-8 max-w-xs text-slate-500 font-medium">
+            <p className="text-sm leading-relaxed mb-6 max-w-xs text-slate-500 font-medium">
               Empowering retail businesses with intelligent billing and management tools. Built for the future of commerce.
             </p>
+
+            <address className="not-italic text-sm text-slate-500 font-medium mb-8 flex items-start gap-2.5 max-w-xs">
+              <MapPin size={16} className="shrink-0 mt-0.5 text-primary-500" />
+              <span>HiLITE Business Park, Tower 2, 2nd Floor, State Highway 28, Palazhi, Kozhikode, Kerala 673014</span>
+            </address>
             {/* <div className="flex gap-4">
               {['X', 'in', 'fb'].map((social) => (
                 <a 
@@ -62,29 +67,35 @@ const Footer: React.FC = () => {
           <div>
             <h4 className="text-white font-bold mb-6 tracking-wide">Product</h4>
             <ul className="space-y-4 text-sm font-medium">
-              <li><a href="#" className="hover:text-primary transition-colors">Features</a></li>
-              <li><a href="#" className="hover:text-primary transition-colors">Pricing</a></li>
-              <li><a href="#" className="hover:text-primary transition-colors">Enterprise</a></li>
-              <li><a href="#" className="hover:text-primary transition-colors">Changelog</a></li>
+              <li><a href="#features" className="hover:text-primary transition-colors">Features</a></li>
+              <li><a href="#pricing" className="hover:text-primary transition-colors">Pricing</a></li>
+              <li><a href="#how-it-works" className="hover:text-primary transition-colors">How It Works</a></li>
+              <li><a href="#FAQ" className="hover:text-primary transition-colors">FAQ</a></li>
             </ul>
           </div>
 
           <div>
             <h4 className="text-white font-bold mb-6 tracking-wide">Company</h4>
             <ul className="space-y-4 text-sm font-medium">
-              <li><a href="#" className="hover:text-primary transition-colors">About</a></li>
-              <li><a href="#" className="hover:text-primary transition-colors">Careers</a></li>
-              <li><a href="#" className="hover:text-primary transition-colors">Blog</a></li>
-              <li><a href="#" className="hover:text-primary transition-colors">Contact</a></li>
+              <li><a href="#who-its-for" className="hover:text-primary transition-colors">Who It's For</a></li>
+              <li><a href="#dashboard" className="hover:text-primary transition-colors">Dashboard</a></li>
+              <li><a href="#contact" className="hover:text-primary transition-colors">Contact</a></li>
             </ul>
           </div>
 
           <div className="col-span-2 lg:col-span-1">
-            <h4 className="text-white font-bold mb-6 tracking-wide">Legal</h4>
+            <h4 className="text-white font-bold mb-6 tracking-wide">Get in Touch</h4>
             <ul className="space-y-4 text-sm font-medium">
-              <li><a href="#" className="hover:text-primary transition-colors">Privacy</a></li>
-              <li><a href="#" className="hover:text-primary transition-colors">Terms</a></li>
-              <li><a href="#" className="hover:text-primary transition-colors">Security</a></li>
+              <li>
+                <a href="mailto:info@aibillo.com" className="hover:text-primary transition-colors flex items-center gap-2">
+                  <Mail size={14} /> info@aibillo.com
+                </a>
+              </li>
+              <li>
+                <a href="https://wa.me/+918590000918" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors flex items-center gap-2">
+                  <Phone size={14} /> +91 85900 00918
+                </a>
+              </li>
             </ul>
           </div>
         </div>

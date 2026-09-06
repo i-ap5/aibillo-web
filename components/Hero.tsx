@@ -40,7 +40,7 @@ const Hero: React.FC = () => {
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center opacity-0 animate-fade-in-up" style={{ animationDelay: '0.5s', animationFillMode: 'forwards' }}>
             <button
               onClick={() => {
-                window.open('https://aibillo-frontend.vercel.app/register', '_blank');
+                window.open('https://app.aibillo.com/register', '_blank');
               }}
               className="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 text-base font-bold text-white transition-all duration-300 bg-primary-600 border border-transparent rounded-full hover:bg-primary-700 shadow-xl shadow-primary/30 hover:shadow-primary/50 hover:-translate-y-1">
               Start Free Trial
