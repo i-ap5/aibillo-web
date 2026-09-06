@@ -138,24 +138,6 @@ const Hero: React.FC = () => {
           </div>
         </div>
 
-        {/* Partners */}
-        <div className="mt-32 text-center opacity-0 animate-fade-in-up" style={{ animationDelay: '1.1s', animationFillMode: 'forwards' }}>
-          <p className="text-[11px] font-bold text-slate-400 uppercase tracking-[0.3em] mb-12">Powering 2,500+ Modern Businesses</p>
-          <div className="flex flex-wrap justify-center items-center gap-x-12 lg:gap-x-20 gap-y-8 opacity-50 grayscale">
-            {[
-              { icon: 'storefront', label: 'RetailFlow' },
-              { icon: 'inventory_2', label: 'StockMaster' },
-              { icon: 'payments', label: 'EasyPay' },
-              { icon: 'local_shipping', label: 'ShipFast' },
-              { icon: 'analytics', label: 'DataWise' },
-            ].map((p) => (
-              <div key={p.label} className="flex items-center gap-2.5 text-xl font-bold text-slate-800">
-                <span className="material-symbols-outlined text-2xl">{p.icon}</span>
-                {p.label}
-              </div>
-            ))}
-          </div>
-        </div>
       </div>
 
 
